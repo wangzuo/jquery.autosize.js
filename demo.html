@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>Textarea Autosize Demo</title>
+	<style type="text/css">
+	* { 
+		-moz-box-sizing: border-box; 
+		-webkit-box-sizing: border-box; 
+		box-sizing: border-box;
+	}
+	body, textarea {
+		font-family: "lucida grande",tahoma,verdana,arial,sans-serif
+	}
+	.container {
+		width: 50%;
+		margin: 0px auto;
+	}
+	.row {
+		width: 100%;
+	}
+	pre {
+		border-left: 5px solid #eee;
+		padding: 10px;
+	}
+	textarea {
+		width: 100%;
+		outline: none;
+		resize: none;
+		border:1px solid #ccc;
+		padding: 5px;
+	}
+	#animated {
+		vertical-align: top; 
+		transition: height 0.2s;
+		-webkit-transition: height 0.2s; 
+		-moz-transition: height 0.2s; 
+	}
+	#edit-div {
+		border:1px solid #ccc;
+		width:100%;
+		padding:4px;
+		min-height:80px;
+		outline: none;
+		font-size: 11px;
+	}
+
+	</style>
+	<script src='http://bit.ly/jqsource'></script>
+	<script src='jquery.autosize.js'></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>Textarea Autosize Demo</h1>
+		<div class="row">
+			<p>
+				&lt;textarea data-size=&quot;auto&quot;&gt;&lt;/textarea&gt;
+			</p>
+		</div>
+		<div class="row">
+			<h4>Demo #1</h4>
+			<p>Standard</p>
+			<textarea data-size="auto" rows="4" id="normal" placeholder="Enter your text"></textarea>
+		</div>
+		<div class="row">
+			<h4>Demo #2</h4>
+			<p>Styling border</p>
+			<textarea style="border: 4px solid #eee;" data-size="auto" rows="4" placeholder="Enter your text"></textarea>
+		</div>
+		<div class="row">
+			<h4>Demo #3</h4>
+			<p>Event delegation</p>
+			<button id="add-new-textarea">New Textarea</button>
+			<script type="text/javascript">
+				$('#add-new-textarea').click(function() {
+					$('<textarea data-size="auto">').insertAfter($(this));
+				});
+			</script>
+		</div>
+		<div class="row">
+			<h4>Demo #4</h4>
+			<p>$textarea.autoresizeReset();</p>
+			<form action="#">
+				<textarea id="form-textarea" data-size="auto" rows="4" placeholder="Enter your text"></textarea>
+				<input type="submit" value="submit form" />
+				<button id="reset">reset</button>
+			</form>
+			<script type="text/javascript">
+				$('form').submit(function() {
+					return false;
+				});
+				$('#reset').click(function() {
+					$('#form-textarea').autosizeReset();
+				});
+			</script>
+		</div>
+
+		<div class="row">
+			<h4>More: contenteditable=plaintext-only</h4>
+			<p>Only in modern webkit browsers</p>
+			<div contenteditable="plaintext-only" id="edit-div"></div>
+		</div>
+
+		<div class="row">
+			&nbsp;
+		</div>
+	</div>
+</body>
+</html>
