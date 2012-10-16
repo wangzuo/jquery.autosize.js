@@ -1,5 +1,5 @@
 ## Demo
-[http://wangzuo.github.com/autosize/demo.html](http://wangzuo.github.com/autosize/demo.html)
+[http://wangzuo.github.com/textarea-autosize/demo.html](http://wangzuo.github.com/textarea-autosize/demo.html)
 
 ## Notice
 `box-sizing: border-box` by default.
